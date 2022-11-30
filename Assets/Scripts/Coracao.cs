@@ -7,15 +7,22 @@ public class Coracao : MonoBehaviour
     private int vidaTotal = 5;
     public int vida;
 
-    //private Virus virus;
-    //private Bacteria bacteria;
+    private GameOver gameover;
+
+    private MedMan player;
 
     // Start is called before the first frame update
     void Start()
     {
         vida = vidaTotal;
-        //virus = GetComponent<Virus>();
-        //bacteria = GetComponent<Bacteria>();
+
+        GameObject objetoGameOver = GameObject.FindGameObjectWithTag("TelaGameOver");
+        gameover = objetoGameOver.GetComponent<GameOver>();
+
+        GameObject objetoPlayer = GameObject.FindGameObjectWithTag("Player");
+        player = objetoPlayer.GetComponent<MedMan>();
+
+        gameover.Esconder();
     }
 
     // Update is called once per frame
@@ -23,7 +30,11 @@ public class Coracao : MonoBehaviour
     {
         if(vida < 0)
         {
+            vida = 0;
+            // Deixa o player imóvel
+            player.Inativo();
             // GameOver
+            gameover.Exibir();
         }
     }
 

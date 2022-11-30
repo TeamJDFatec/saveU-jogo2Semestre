@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Inimigo
   - Tiro
+  - TelaGameOver
   layers:
   - Default
   - TransparentFX

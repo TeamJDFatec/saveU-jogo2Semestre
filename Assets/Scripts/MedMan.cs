@@ -13,6 +13,7 @@ public class MedMan : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.gameObject.SetActive(true);
         ControladorPontuacao.Pontuacao = 0;
     }
 
@@ -44,5 +45,11 @@ public class MedMan : MonoBehaviour
         {
             Instantiate(tiro, pivo.position, transform.rotation);
         }
+    }
+
+    public void Inativo()
+    {
+        // Deixa o player inativo na cena. Será usado quando a tela game over for chamada
+        this.gameObject.SetActive(false);
     }
 }
