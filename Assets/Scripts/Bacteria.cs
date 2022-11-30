@@ -14,7 +14,7 @@ public class Bacteria : MonoBehaviour
     // Atribuindo pontos por matar os inimigos
     public int pontos;
     public GameObject cp;
-
+    
     // Start is called before the first frame update
     void Start()
     {
