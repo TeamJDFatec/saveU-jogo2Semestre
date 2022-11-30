@@ -46,6 +46,16 @@ public class Tiro : MonoBehaviour
                 bacteria.Destruir();
             }
         }
+        if(other.gameObject.layer == 8)
+        {
+            other.GetComponent<Fago>().tomaDano(dano);
+
+            if(other.GetComponent<Fago>().vida == 0)
+            {
+                Fago fago = other.GetComponent<Fago>();
+                fago.Destruir();
+            }
+        }
         Destroy(this.gameObject, 0f);
     }
     

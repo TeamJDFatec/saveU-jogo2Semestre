@@ -619,6 +619,7 @@ MonoBehaviour:
   possibleEnimes:
   - {fileID: 8329636862023373538, guid: 8a9547d2ff057704cb71a87a9c818af5, type: 3}
   - {fileID: 6658625149468069696, guid: 7b5e8e8ee546f2f478f399499efe4ba7, type: 3}
+  - {fileID: 6958854126374000494, guid: 870d1ecf597262442b91ca92d2a4f059, type: 3}
   activeEnemies: 0
 --- !u!212 &360275952
 SpriteRenderer:

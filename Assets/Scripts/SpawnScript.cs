@@ -54,12 +54,17 @@ public class SpawnScript : MonoBehaviour
         if(ControladorPontuacao.Pontuacao > 1000 && ControladorPontuacao.Pontuacao <= 2000)
         {
             timeToWait = 2f;
-            Debug.Log("1,5 segundos");
+            Debug.Log("2 segundos");
         }
-        if(ControladorPontuacao.Pontuacao > 2000)
+        if(ControladorPontuacao.Pontuacao > 2000 && ControladorPontuacao.Pontuacao <= 5000)
         {
             timeToWait = 1f;
             Debug.Log("1 segundos");
+        }
+        if(ControladorPontuacao.Pontuacao > 5000)
+        {
+            timeToWait = 0.5f;
+            Debug.Log("0,5 segundo");
         }
 
         yield return new WaitForSeconds(timeToWait);
