@@ -13,7 +13,7 @@ public class MedMan : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ControladorPontuacao.Pontuacao = 0;
     }
 
     // Update is called once per frame

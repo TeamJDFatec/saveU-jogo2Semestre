@@ -29,10 +29,22 @@ public class Tiro : MonoBehaviour
         if(other.gameObject.layer == 6)
         {
             other.GetComponent<Virus>().tomaDano(dano);
+            
+            if(other.GetComponent<Virus>().vida == 0)
+            {
+                Virus virus = other.GetComponent<Virus>();
+                virus.Destruir();
+            }
         }
         if(other.gameObject.layer == 7)
         {
             other.GetComponent<Bacteria>().tomaDano(dano);
+
+            if(other.GetComponent<Bacteria>().vida == 0)
+            {
+                Bacteria bacteria = other.GetComponent<Bacteria>();
+                bacteria.Destruir();
+            }
         }
         Destroy(this.gameObject, 0f);
     }

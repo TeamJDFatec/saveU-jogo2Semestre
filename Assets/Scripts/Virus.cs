@@ -9,12 +9,11 @@ public class Virus : MonoBehaviour
     public float velocidade;
 
     public int vidaTotal = 1;
-    private int vida;
+    public int vida;
     public int dano;
 
     // Atribuindo pontos por matar os inimigos
     public int pontos;
-    public GameObject cp;
 
     // Start is called before the first frame update
     void Start()
@@ -32,19 +31,17 @@ public class Virus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(vida <= 0)
-        {
-            //GetComponent<Pontuacao>().pontuar(pontos);
-            cp.GetComponent<Pontuacao>().pontuar(pontos);
-
-            //Debug.Log(cp.GetComponent<Pontuacao>().pontuacao);
-
-            Destroy(this.gameObject, 0f);
-        }
+        
     }
 
     public void tomaDano(int dano)
     {
         vida = vida - dano;
+    }
+
+    public void Destruir()
+    {
+        ControladorPontuacao.Pontuacao = ControladorPontuacao.Pontuacao + pontos;
+        Destroy(this.gameObject);
     }
 }
