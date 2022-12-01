@@ -29,8 +29,9 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (coracao.vida <= 0)
+        if (coracao.vida < 0)
         {
+            coracao.vida = 0;
             gameOver.Exibir();
         }
 

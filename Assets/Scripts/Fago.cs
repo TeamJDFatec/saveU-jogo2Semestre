@@ -16,7 +16,7 @@ public class Fago : MonoBehaviour
 
     [SerializeField]
     [Range(0, 100)]
-    private float chanceSoltarItemVida;
+    public float chanceSoltarItemVida;
 
     [SerializeField]
     private ItemVida itemVidaPrefab;
@@ -56,11 +56,12 @@ public class Fago : MonoBehaviour
     {
         float chanceAleatoria = Random.Range(0f, 100f);
 
+        
+
         if (chanceAleatoria <= this.chanceSoltarItemVida) 
         {
             //Soltar o item de vida
             Instantiate(this.itemVidaPrefab, this.transform.position, Quaternion.identity);
-            Destroy(this.itemVidaPrefab, 3f);
         }
     }
 }

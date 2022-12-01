@@ -14,7 +14,7 @@ public class Coracao : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        vida = vidaTotal;
+        vida = 0;
 
         /*GameObject objetoGameOver = GameObject.FindGameObjectWithTag("TelaGameOver");
         gameover = objetoGameOver.GetComponent<GameOver>();*/
@@ -30,7 +30,8 @@ public class Coracao : MonoBehaviour
     {
         if(vida < 0)
         {
-            vida = 0;
+            // a vida igual a zero aqui estava dando problema para chamar o game over, já que ele estava sendo chamado sempre que a vida ficava igual a 0, e no nosso caso, tem que ser menor que zero para ele perder.
+            // vida = 0;
             // Deixa o player imóvel
             player.Inativo();
             // GameOver

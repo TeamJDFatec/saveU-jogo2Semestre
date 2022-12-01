@@ -14,6 +14,8 @@ public class ItemVida : MonoBehaviour
         velocidade = 5;
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.down * velocidade;
+
+        Destroy(this.gameObject, 3f);
     }
 
     public int QuantidadeVidas

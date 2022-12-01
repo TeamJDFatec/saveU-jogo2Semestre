@@ -17,7 +17,7 @@ public class Virus : MonoBehaviour
     
     [SerializeField]
     [Range(0, 100)]
-    private float chanceSoltarItemVida;
+    public float chanceSoltarItemVida;
 
     [SerializeField]
     private ItemVida itemVidaPrefab;
@@ -61,7 +61,6 @@ public class Virus : MonoBehaviour
         {
             //Soltar o item de vida
             Instantiate(this.itemVidaPrefab, this.transform.position, Quaternion.identity);
-            Destroy(this.itemVidaPrefab, 3f);
         }
     }
 }
