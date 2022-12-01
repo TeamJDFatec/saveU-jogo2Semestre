@@ -7,14 +7,18 @@ public class MedMan : MonoBehaviour
     public float velocidade;
 
     public GameObject tiro;
-
     public Transform pivo;
+
+    private Coracao coracao;
 
     // Start is called before the first frame update
     void Start()
     {
         this.gameObject.SetActive(true);
         ControladorPontuacao.Pontuacao = 0;
+
+        GameObject coracaoObject = GameObject.FindGameObjectWithTag("Coracao");
+        coracao = coracaoObject.GetComponent<Coracao>();
     }
 
     // Update is called once per frame
@@ -37,6 +41,8 @@ public class MedMan : MonoBehaviour
             Mathf.Clamp(transform.position.x, bordaEsquerda, bordaDireita),
             transform.position.y
         );
+
+
     }
 
     void atira()
@@ -51,5 +57,22 @@ public class MedMan : MonoBehaviour
     {
         // Deixa o player inativo na cena. Será usado quando a tela game over for chamada
         this.gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.CompareTag("ItemVida"))
+        {
+            ItemVida itemVida = collider.GetComponent<ItemVida>();
+
+            if (coracao.vida + itemVida.quantidadeVidas >= coracao.vidaTotal)
+            {
+                coracao.vida = coracao.vidaTotal;
+            }
+            else
+            {
+                coracao.vida = itemVida.quantidadeVidas;
+            }
+        }
     }
 }

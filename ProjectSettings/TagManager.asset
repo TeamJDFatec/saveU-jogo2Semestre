@@ -7,6 +7,9 @@ TagManager:
   - Inimigo
   - Tiro
   - TelaGameOver
+  - TelaPause
+  - Coracao
+  - ItemVida
   layers:
   - Default
   - TransparentFX

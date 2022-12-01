@@ -56,7 +56,10 @@ public class Tiro : MonoBehaviour
                 fago.Destruir();
             }
         }
-        Destroy(this.gameObject, 0f);
+        if (!other.CompareTag("Player"))
+        {
+            Destroy(this.gameObject, 0f);
+        }
     }
     
 }

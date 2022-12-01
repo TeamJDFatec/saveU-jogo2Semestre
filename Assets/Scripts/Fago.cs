@@ -14,6 +14,13 @@ public class Fago : MonoBehaviour
     // Atribuindo pontos por matar os inimigos
     public int pontos;
 
+    [SerializeField]
+    [Range(0, 100)]
+    private float chanceSoltarItemVida;
+
+    [SerializeField]
+    private ItemVida itemVidaPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +48,18 @@ public class Fago : MonoBehaviour
     public void Destruir()
     {
         ControladorPontuacao.Pontuacao = ControladorPontuacao.Pontuacao + pontos;
+        SoltarItemVida();
         Destroy(this.gameObject);
+    }
+
+    private void SoltarItemVida()
+    {
+        float chanceAleatoria = Random.Range(0f, 100f);
+
+        if (chanceAleatoria <= this.chanceSoltarItemVida) 
+        {
+            //Soltar o item de vida
+            Instantiate(this.itemVidaPrefab, this.transform.position, Quaternion.identity);
+        }
     }
 }

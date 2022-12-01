@@ -7,16 +7,19 @@ public class InGame : MonoBehaviour
 {
 
     public Text textoPontuacao;
+    public BarraVida barraVida;
 
-    // Start is called before the first frame update
-    void Start()
+    private Coracao coracao;
+
+    void Start() 
     {
-        
+        this.coracao = GameObject.FindGameObjectWithTag("Coracao").GetComponent<Coracao>();
     }
 
     // Update is called once per frame
     void Update()
     {
         this.textoPontuacao.text = "Pontuação: " + ControladorPontuacao.Pontuacao.ToString();
+        this.barraVida.ExibirVida(this.coracao.vida);
     }
 }

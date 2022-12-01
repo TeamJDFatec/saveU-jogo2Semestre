@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Coracao : MonoBehaviour
 {
-    private int vidaTotal = 5;
+    public int vidaTotal = 5;
     public int vida;
 
     private GameOver gameover;
@@ -16,13 +16,13 @@ public class Coracao : MonoBehaviour
     {
         vida = vidaTotal;
 
-        GameObject objetoGameOver = GameObject.FindGameObjectWithTag("TelaGameOver");
-        gameover = objetoGameOver.GetComponent<GameOver>();
+        /*GameObject objetoGameOver = GameObject.FindGameObjectWithTag("TelaGameOver");
+        gameover = objetoGameOver.GetComponent<GameOver>();*/
 
         GameObject objetoPlayer = GameObject.FindGameObjectWithTag("Player");
         player = objetoPlayer.GetComponent<MedMan>();
 
-        gameover.Esconder();
+        //gameover.Esconder();
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class Coracao : MonoBehaviour
             // Deixa o player imóvel
             player.Inativo();
             // GameOver
-            gameover.Exibir();
+            //gameover.Exibir();
         }
     }
 
@@ -52,6 +52,10 @@ public class Coracao : MonoBehaviour
         if(other.gameObject.layer == 7)
         {
             tomaDano(other.GetComponent<Bacteria>().dano);
+        }
+        if(other.gameObject.layer == 8)
+        {
+            tomaDano(other.GetComponent<Fago>().dano);
         }
         Destroy(other.gameObject, 0f);
     }
