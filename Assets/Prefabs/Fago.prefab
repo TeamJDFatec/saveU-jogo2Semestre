@@ -151,5 +151,5 @@ MonoBehaviour:
   vida: 0
   dano: 3
   pontos: 400
-  chanceSoltarItemVida: 10
+  chanceSoltarItemVida: 5
   itemVidaPrefab: {fileID: 6310774165856891574, guid: 695dc8585f484ff4b8bf873bf1bbced4, type: 3}

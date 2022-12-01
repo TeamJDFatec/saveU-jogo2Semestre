@@ -10,6 +10,7 @@ TagManager:
   - TelaPause
   - Coracao
   - ItemVida
+  - Jogando
   layers:
   - Default
   - TransparentFX

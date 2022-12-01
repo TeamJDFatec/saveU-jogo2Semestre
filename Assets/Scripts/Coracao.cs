@@ -23,20 +23,22 @@ public class Coracao : MonoBehaviour
         player = objetoPlayer.GetComponent<MedMan>();
 
         //gameover.Esconder();
+        this.gameObject.GetComponent<Collider2D>().enabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(vida < 0)
+        /*if(vida < 0)
         {
             // a vida igual a zero aqui estava dando problema para chamar o game over, já que ele estava sendo chamado sempre que a vida ficava igual a 0, e no nosso caso, tem que ser menor que zero para ele perder.
             // vida = 0;
             // Deixa o player imóvel
-            player.Inativo();
+            //player.Inativo();
+
             // GameOver
             //gameover.Exibir();
-        }
+        }*/
     }
 
     void tomaDano(int dano)
@@ -46,21 +48,29 @@ public class Coracao : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        if(other.gameObject.layer == 6)
+        if(vida < 0)
         {
-            tomaDano(other.GetComponent<Virus>().dano);
+            player.Inativo();
+            this.gameObject.GetComponent<Collider2D>().enabled = false;
         }
-        if(other.gameObject.layer == 7)
+        else
         {
-            tomaDano(other.GetComponent<Bacteria>().dano);
-        }
-        if(other.gameObject.layer == 8)
-        {
-            tomaDano(other.GetComponent<Fago>().dano);
-        }
-        if(other.gameObject.layer == 9)
-        {
-            return;
+            if(other.gameObject.layer == 6)
+            {
+                tomaDano(other.GetComponent<Virus>().dano);
+            }
+            if(other.gameObject.layer == 7)
+            {
+                tomaDano(other.GetComponent<Bacteria>().dano);
+            }
+            if(other.gameObject.layer == 8)
+            {
+                tomaDano(other.GetComponent<Fago>().dano);
+            }
+            if(other.gameObject.layer == 9)
+            {
+                return;
+            }
         }
         Destroy(other.gameObject, 0f);
     }

@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     private InPause inPause;
     private GameOver gameOver;
     private Coracao coracao;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,8 @@ public class GameController : MonoBehaviour
 
         GameObject coracaoObject = GameObject.FindGameObjectWithTag("Coracao");
         coracao = coracaoObject.GetComponent<Coracao>();
+
+
     }
 
     // Update is called once per frame
