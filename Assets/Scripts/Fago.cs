@@ -60,6 +60,7 @@ public class Fago : MonoBehaviour
         {
             //Soltar o item de vida
             Instantiate(this.itemVidaPrefab, this.transform.position, Quaternion.identity);
+            Destroy(this.itemVidaPrefab, 3f);
         }
     }
 }

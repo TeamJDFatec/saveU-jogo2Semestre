@@ -57,6 +57,10 @@ public class Coracao : MonoBehaviour
         {
             tomaDano(other.GetComponent<Fago>().dano);
         }
+        if(other.gameObject.layer == 9)
+        {
+            return;
+        }
         Destroy(other.gameObject, 0f);
     }
 }

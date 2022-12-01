@@ -47,7 +47,7 @@ public class MedMan : MonoBehaviour
 
     void atira()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetKeyDown("space"))
         {
             Instantiate(tiro, pivo.position, transform.rotation);
         }
@@ -71,7 +71,7 @@ public class MedMan : MonoBehaviour
             }
             else
             {
-                coracao.vida = itemVida.quantidadeVidas;
+                coracao.vida += itemVida.quantidadeVidas;
             }
         }
     }

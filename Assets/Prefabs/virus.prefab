@@ -148,6 +148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidade: 4
   vidaTotal: 1
+  vida: 0
   dano: 2
   pontos: 0
-  cp: {fileID: 7464664681233865383, guid: c799457e220e73a45beef40c5f933733, type: 3}
+  chanceSoltarItemVida: 20
+  itemVidaPrefab: {fileID: 6310774165856891574, guid: 695dc8585f484ff4b8bf873bf1bbced4, type: 3}
