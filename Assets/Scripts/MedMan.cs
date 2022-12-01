@@ -9,6 +9,8 @@ public class MedMan : MonoBehaviour
     public GameObject tiro;
     public Transform pivo;
 
+    private AudioSource audio;
+
     private Coracao coracao;
 
     // Start is called before the first frame update
@@ -19,6 +21,8 @@ public class MedMan : MonoBehaviour
 
         GameObject coracaoObject = GameObject.FindGameObjectWithTag("Coracao");
         coracao = coracaoObject.GetComponent<Coracao>();
+
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -49,6 +53,7 @@ public class MedMan : MonoBehaviour
     {
         if(Input.GetKeyDown("space"))
         {
+            audio.Play();
             Instantiate(tiro, pivo.position, transform.rotation);
         }
     }

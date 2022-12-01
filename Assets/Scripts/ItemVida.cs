@@ -30,6 +30,7 @@ public class ItemVida : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            // Colocar o som de pegar vacina aqui.
             Destroy(this.gameObject);
         }
     }

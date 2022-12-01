@@ -49,6 +49,7 @@ public class Virus : MonoBehaviour
     public void Destruir()
     {
         ControladorPontuacao.Pontuacao = ControladorPontuacao.Pontuacao + pontos;
+        // podemos colocar um som de morte ou drop de item em todos os inimigos.
         SoltarItemVida();
         Destroy(this.gameObject);
     }
