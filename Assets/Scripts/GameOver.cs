@@ -10,6 +10,7 @@ public class GameOver : MonoBehaviour
     public InGame jogando;
 
     public Text textoPontuacao;
+    public Text textoMelhorPontuacao;
     public bool inGameOver;
 
     public AudioSource som;
@@ -33,6 +34,8 @@ public class GameOver : MonoBehaviour
         rectTransform.offsetMax = new Vector2(0, 0);
 
         textoPontuacao.text = "PONTUAÇÃO: " + ControladorPontuacao.Pontuacao;
+        textoMelhorPontuacao.text = "MELHOR PONTUAÇÃO: " + ControladorPontuacao.MelhorPontuacao;
+        //Debug.Log("Melhor pontuação: " + ControladorPontuacao.MelhorPontuacao);
         // Pausando o jogo quando a tela de game over for chamada, mas eu nao quero fazer isso
         //Time.timeScale = 0;
     }

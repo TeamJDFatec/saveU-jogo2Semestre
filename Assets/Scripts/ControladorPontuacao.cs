@@ -21,6 +21,27 @@ public static class ControladorPontuacao
                 pontuacao = 0;
             }
             Debug.Log("Pontuação atualizada para: " + Pontuacao);
+
+            if(pontuacao > MelhorPontuacao)
+            {
+                MelhorPontuacao = pontuacao;
+            }
+        }
+    }
+
+    public static int MelhorPontuacao
+    {
+        get
+        {
+            int recorde = PlayerPrefs.GetInt("recorde", 0);
+            return recorde;
+        }
+        set
+        {
+            if(value > MelhorPontuacao)
+            {
+                PlayerPrefs.SetInt("recorde", value);
+            }
         }
     }
 }
