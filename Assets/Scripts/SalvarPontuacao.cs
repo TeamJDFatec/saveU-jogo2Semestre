@@ -13,7 +13,7 @@ public class SalvarPontuacao : MonoBehaviour
     private string nome;
 
     private static string BaseURI = "http://ticdemestre.com.br/estacao/";
-	private static string PostURI = "game_add.php?game_chave=abc";
+	private static string PostURI = "game_add.php?game_chave=saveu";
 
     void Start()
     {
@@ -23,7 +23,7 @@ public class SalvarPontuacao : MonoBehaviour
     public void Salvar()
     {
         nome = inputNome.text;
-        string url = BaseURI + PostURI + "&gam_nome= " + nome + "&gam_pontos=" + ControladorPontuacao.Pontuacao.ToString();
+        string url = BaseURI + PostURI + "&game_nome=" + nome + "&game_pontos=" + ControladorPontuacao.Pontuacao;
         Debug.Log(url);
 
         StartCoroutine(PostRequest(url));
@@ -51,6 +51,7 @@ public class SalvarPontuacao : MonoBehaviour
         using (UnityWebRequest webRequest = UnityWebRequest.Get(PostUri))
         {
             // Request and wait for the desired page.
+            Debug.Log(PostUri);
             yield return webRequest.SendWebRequest();
 
             string[] pages = PostUri.Split('/');

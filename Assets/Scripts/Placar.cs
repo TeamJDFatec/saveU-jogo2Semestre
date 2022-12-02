@@ -32,7 +32,7 @@ public class Placar : MonoBehaviour
     private List<PlacarJogador> placarJogador = new List<PlacarJogador>();
 
     private static string BaseURI = "http://ticdemestre.com.br/estacao/";
-	private static string GetURI = "game_view.php?game_chave=abc";
+	private static string GetURI = "game_view.php?game_chave=saveu";
 
     private int maxRanking = 4;
 
