@@ -28,6 +28,8 @@ public class GameController : MonoBehaviour
 
         GameObject coracaoObject = GameObject.FindGameObjectWithTag("Coracao");
         coracao = coracaoObject.GetComponent<Coracao>();
+
+
     }
 
     // Update is called once per frame

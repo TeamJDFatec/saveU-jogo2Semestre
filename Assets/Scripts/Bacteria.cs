@@ -49,6 +49,7 @@ public class Bacteria : MonoBehaviour
     {
         ControladorPontuacao.Pontuacao = ControladorPontuacao.Pontuacao + pontos;
         SoltarItemVida();
+
         Destroy(this.gameObject);
     }
 

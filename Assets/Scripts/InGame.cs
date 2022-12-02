@@ -5,15 +5,28 @@ using UnityEngine.UI;
 
 public class InGame : MonoBehaviour
 {
+    public GameOver gameOver;
+    public InPause pause;
 
     public Text textoPontuacao;
     public BarraVida barraVida;
 
     private Coracao coracao;
 
-    void Start() 
+    public AudioSource som;
+
+    public void Start() 
     {
         this.coracao = GameObject.FindGameObjectWithTag("Coracao").GetComponent<Coracao>();
+
+        if(gameOver.inGameOver || pause.pausado)
+        {
+            som.Pause();
+        }
+        else
+        {
+            som.Play();
+        }
     }
 
     // Update is called once per frame

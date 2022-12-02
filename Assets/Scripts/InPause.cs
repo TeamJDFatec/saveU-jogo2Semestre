@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 public class InPause : MonoBehaviour
 {
 
+    public InGame jogando;
+
+    public bool pausado;
+    public AudioSource som;
+
     public void PausarJogo()
     {
         Time.timeScale = 0;
@@ -15,11 +20,18 @@ public class InPause : MonoBehaviour
     {
         this.gameObject.SetActive(false);
         Time.timeScale = 1;
+
+        pausado = false;
+        jogando.Start();
     }
 
     public void Exibir()
     {
+        pausado = true;
         this.gameObject.SetActive(true);
+        som.Play();
+
+        jogando.Start();
         
         RectTransform rectTransform = GetComponent<RectTransform>();
         rectTransform.offsetMin = new Vector2(0, 0);
@@ -29,6 +41,10 @@ public class InPause : MonoBehaviour
     public void Esconder()
     {
         this.gameObject.SetActive(false);
+        pausado = false;
+        som.Stop();
+
+        jogando.Start();
         
     }
 

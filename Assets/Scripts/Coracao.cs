@@ -22,20 +22,22 @@ public class Coracao : MonoBehaviour
         player = objetoPlayer.GetComponent<MedMan>();
 
         //gameover.Esconder();
+        this.gameObject.GetComponent<Collider2D>().enabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(vida < 0)
+        /*if(vida < 0)
         {
             // a vida igual a zero aqui estava dando problema para chamar o game over, já que ele estava sendo chamado sempre que a vida ficava igual a 0, e no nosso caso, tem que ser menor que zero para ele perder.
             // vida = 0;
             // Deixa o player imóvel
-            player.Inativo();
+            //player.Inativo();
+
             // GameOver
             //gameover.Exibir();
-        }
+        }*/
     }
 
     void tomaDano(int dano)
@@ -46,8 +48,7 @@ public class Coracao : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if (!gameOver.inGameOver)
-        {
-            if(other.gameObject.layer == 6)
+        {   if(other.gameObject.layer == 6)
             {
                 tomaDano(other.GetComponent<Virus>().dano);
             }
@@ -64,6 +65,7 @@ public class Coracao : MonoBehaviour
                 return;
             }
         }
+        
         Destroy(other.gameObject, 0f);
         
     }
