@@ -37,12 +37,13 @@ public class MedMan : MonoBehaviour
         float direcionamento = Input.GetAxis("Horizontal") * velocidade * Time.deltaTime;
         transform.Translate(direcionamento, 0f, 0f);
 
-        var bordaEsquerda = Camera.main.ViewportToWorldPoint(new Vector2(0, 0)).x;
-        var bordaDireita = Camera.main.ViewportToWorldPoint(new Vector2(1, 0)).x;
+        //var bordaEsquerda = Camera.main.ViewportToWorldPoint(new Vector2(0, 0)).x;
+        //var bordaDireita = Camera.main.ViewportToWorldPoint(new Vector2(1, 0)).x;
 
         transform.position = new Vector2(
             // Função Mathf.Clamp permite limitar o valor da posição do personagem no max e min, no caso as bordas.
-            Mathf.Clamp(transform.position.x, bordaEsquerda, bordaDireita),
+            // Estou limitando ele de acordo com o tamanho da camera. No caso, eu quero limitá-lo no movimento em x, podendo ir até no minimo -3.7 e no maximo 3.7
+            Mathf.Clamp(transform.position.x, -3.7f, 3.7f),
             transform.position.y
         );
 

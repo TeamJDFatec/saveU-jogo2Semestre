@@ -22,7 +22,6 @@ public class Coracao : MonoBehaviour
         player = objetoPlayer.GetComponent<MedMan>();
 
         //gameover.Esconder();
-        this.gameObject.GetComponent<Collider2D>().enabled = true;
     }
 
     // Update is called once per frame

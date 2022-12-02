@@ -46,6 +46,12 @@ public class SalvarPontuacao : MonoBehaviour
         
     }
 
+    public void Sair()
+    {
+        Esconder();
+        gameOver.Exibir();
+    }
+
     IEnumerator PostRequest(string PostUri)
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Get(PostUri))

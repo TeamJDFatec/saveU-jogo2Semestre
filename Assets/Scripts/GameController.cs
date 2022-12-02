@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour
     private GameOver gameOver;
     private Coracao coracao;
     private SalvarPontuacao salvarPontuacao;
+
+    private MedMan player;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,9 @@ public class GameController : MonoBehaviour
         GameObject coracaoObject = GameObject.FindGameObjectWithTag("Coracao");
         coracao = coracaoObject.GetComponent<Coracao>();
 
+        GameObject objetoPlayer = GameObject.FindGameObjectWithTag("Player");
+        player = objetoPlayer.GetComponent<MedMan>();
+
 
     }
 
@@ -39,6 +44,7 @@ public class GameController : MonoBehaviour
         {
             coracao.vida = 0;
             salvarPontuacao.Exibir();
+            player.Inativo();
         }
 
         if (!gameOver.inGameOver)
