@@ -7,7 +7,7 @@ public class Coracao : MonoBehaviour
     public int vidaTotal = 5;
     public int vida;
 
-    private GameOver gameover;
+    private GameOver gameOver;
 
     private MedMan player;
 
@@ -16,8 +16,7 @@ public class Coracao : MonoBehaviour
     {
         vida = 0;
 
-        /*GameObject objetoGameOver = GameObject.FindGameObjectWithTag("TelaGameOver");
-        gameover = objetoGameOver.GetComponent<GameOver>();*/
+        gameOver = GameObject.FindGameObjectWithTag("TelaGameOver").GetComponent<GameOver>();
 
         GameObject objetoPlayer = GameObject.FindGameObjectWithTag("Player");
         player = objetoPlayer.GetComponent<MedMan>();
@@ -46,22 +45,26 @@ public class Coracao : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        if(other.gameObject.layer == 6)
+        if (!gameOver.inGameOver)
         {
-            tomaDano(other.GetComponent<Virus>().dano);
-        }
-        if(other.gameObject.layer == 7)
-        {
-            tomaDano(other.GetComponent<Bacteria>().dano);
-        }
-        if(other.gameObject.layer == 8)
-        {
-            tomaDano(other.GetComponent<Fago>().dano);
-        }
-        if(other.gameObject.layer == 9)
-        {
-            return;
+            if(other.gameObject.layer == 6)
+            {
+                tomaDano(other.GetComponent<Virus>().dano);
+            }
+            if(other.gameObject.layer == 7)
+            {
+                tomaDano(other.GetComponent<Bacteria>().dano);
+            }
+            if(other.gameObject.layer == 8)
+            {
+                tomaDano(other.GetComponent<Fago>().dano);
+            }
+            if(other.gameObject.layer == 9)
+            {
+                return;
+            }
         }
         Destroy(other.gameObject, 0f);
+        
     }
 }

@@ -10,6 +10,10 @@ TagManager:
   - TelaPause
   - Coracao
   - ItemVida
+  - PlacarContainer
+  - PlacarTemplate
+  - PosicaoTexto
+  - TelaSalvarPontuacao
   layers:
   - Default
   - TransparentFX

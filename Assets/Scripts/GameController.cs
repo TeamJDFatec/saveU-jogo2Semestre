@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     private InPause inPause;
     private GameOver gameOver;
     private Coracao coracao;
+    private SalvarPontuacao salvarPontuacao;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,9 @@ public class GameController : MonoBehaviour
 
         gameOver.Esconder();
 
+        salvarPontuacao = GameObject.FindGameObjectWithTag("TelaSalvarPontuacao").GetComponent<SalvarPontuacao>();
+        salvarPontuacao.Esconder();
+
         GameObject coracaoObject = GameObject.FindGameObjectWithTag("Coracao");
         coracao = coracaoObject.GetComponent<Coracao>();
     }
@@ -32,7 +36,7 @@ public class GameController : MonoBehaviour
         if (coracao.vida < 0)
         {
             coracao.vida = 0;
-            gameOver.Exibir();
+            salvarPontuacao.Exibir();
         }
 
         if (!gameOver.inGameOver)
