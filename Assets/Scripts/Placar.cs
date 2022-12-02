@@ -34,7 +34,7 @@ public class Placar : MonoBehaviour
     private static string BaseURI = "http://ticdemestre.com.br/estacao/";
 	private static string GetURI = "game_view.php?game_chave=saveu";
 
-    private int maxRanking = 4;
+    private int maxRanking = 10;
 
     private string texto;
 
